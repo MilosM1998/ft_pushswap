@@ -6,14 +6,14 @@
 #    By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 21:56:47 by mmilicev          #+#    #+#              #
-#    Updated: 2024/11/19 22:22:42 by mmilicev         ###   ########.fr        #
+#    Updated: 2024/11/20 22:17:22 by mmilicev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-INS = instructions/
-INS_DIR = $(INS)swap.c
-SRCS = $(INS_DIR) push_swap.c 
+OP = operations/
+OP_DIR = $(OP)swap.c $(OP)push.c $(OP)rotate.c $(OP)rev_rotate.c
+SRCS = $(OP_DIR) push_swap.c utils_stack.c
 OBJS = ${SRCS:.c=.o}
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
