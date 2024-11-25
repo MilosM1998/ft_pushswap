@@ -6,17 +6,17 @@
 #    By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/19 21:56:47 by mmilicev          #+#    #+#              #
-#    Updated: 2024/11/20 22:17:22 by mmilicev         ###   ########.fr        #
+#    Updated: 2024/11/25 22:09:32 by mmilicev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 OP = operations/
-OP_DIR = $(OP)swap.c $(OP)push.c $(OP)rotate.c $(OP)rev_rotate.c
-SRCS = $(OP_DIR) push_swap.c utils_stack.c
+OP_DIR = $(OP)swap.c $(OP)push.c $(OP)rotate.c $(OP)rev_rotate.c $(OP)sort_3.c $(OP)sort_stacks.c
+SRCS = $(OP_DIR) push_swap.c utils_stack.c set_stack.c errors_handling.c set_stack_a.c set_stack_b.c
 OBJS = ${SRCS:.c=.o}
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -g -O0
 RM = rm -rf
 
 all: ${NAME} 
