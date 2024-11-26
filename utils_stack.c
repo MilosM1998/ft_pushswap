@@ -88,7 +88,6 @@ t_stack_list	*take_min(t_stack_list *stack)
 	long min_n;
 
 	min_n = LONG_MIN;
-	min_node = NULL;
 	if (!stack)
 		return (NULL);
 	while (stack)

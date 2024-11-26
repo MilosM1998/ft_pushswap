@@ -6,7 +6,6 @@ static void	add_node(t_stack_list **stack, int n)
 	t_stack_list	*last;
 	t_stack_list	*new;
 
-	last = NULL;
 	if (!stack)
 		return ;
 	new = malloc(sizeof(t_stack_list));
@@ -15,7 +14,6 @@ static void	add_node(t_stack_list **stack, int n)
 	new->n = n;
 	new->is_min_cost = 0;
 	new->next = NULL;
-	new->prev = last;
 	if (!*stack)
 	{
 		*stack = new;

@@ -1,0 +1,4 @@
+calculate_move_costs - += to =;
+find_best_targets_a = take_max(a) u b;
+append_node = new->prev = last; izbaceno last = null izbaceno
+take min izbacen min_node = NULL

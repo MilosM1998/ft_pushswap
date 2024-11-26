@@ -40,7 +40,7 @@ static void	find_best_targets_a(t_stack_list *a, t_stack_list *b)
 			b_node = b_node->next;
 		}
 		if (closest_smaller_value == LONG_MIN)
-			a->target = take_max(a);
+			a->target = take_max(b); // promenjeno
 		else
 			a->target = best_target;
 		a = a->next;
@@ -54,7 +54,6 @@ static void	find_min_cost(t_stack_list *stack)
 	if (!stack)
 		return ;
 	min_cost_value = LONG_MAX;
-	min_cost_node = NULL;
 	while (stack)
 	{
 		if (stack->push_cost < min_cost_value)
@@ -79,7 +78,7 @@ void	calculate_move_costs_a_b(t_stack_list *a, t_stack_list *b)
 	{
 		a->push_cost = a->curr_pos;
 		if (!a->is_above_med)
-			a->push_cost += a_len - a->curr_pos;
+			a->push_cost = a_len - a->curr_pos; // promenjeno
 		if (a->target->is_above_med)
 			a->push_cost += a->target->curr_pos;
 		else
