@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 19:21:36 by mmilicev          #+#    #+#             */
+/*   Updated: 2024/11/28 19:55:46 by mmilicev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void	rev_rotate(t_stack_list **stack)
@@ -13,22 +25,25 @@ static void	rev_rotate(t_stack_list **stack)
 	*stack = last;
 	last->next->prev = last;
 }
+
 void	rra(t_stack_list **a, bool printed)
 {
 	rev_rotate(a);
 	if (!printed)
-		ft_printf("rra\n");
+		ft_putendl_fd("rra", 1);
 }
+
 void	rrb(t_stack_list **b, bool printed)
 {
 	rev_rotate(b);
 	if (!printed)
-		ft_printf("rrb\n");
+		ft_putendl_fd("rrb", 1);
 }
+
 void	rrr(t_stack_list **a, t_stack_list **b, bool printed)
 {
 	rev_rotate(a);
 	rev_rotate(b);
 	if (!printed)
-		ft_printf("rrr\n");
+		ft_putendl_fd("rrr", 1);
 }

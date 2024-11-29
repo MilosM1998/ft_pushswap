@@ -1,12 +1,22 @@
-#include "./push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_stack.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 19:11:02 by mmilicev          #+#    #+#             */
+/*   Updated: 2024/11/29 22:25:26 by mmilicev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "./push_swap.h"
 
 static void	add_node(t_stack_list **stack, int n)
 {
 	t_stack_list	*last;
 	t_stack_list	*new;
 
-	last = NULL;
 	if (!stack)
 		return ;
 	new = malloc(sizeof(t_stack_list));
@@ -15,7 +25,6 @@ static void	add_node(t_stack_list **stack, int n)
 	new->n = n;
 	new->is_min_cost = 0;
 	new->next = NULL;
-	new->prev = last;
 	if (!*stack)
 	{
 		*stack = new;
@@ -28,6 +37,7 @@ static void	add_node(t_stack_list **stack, int n)
 		new->prev = last;
 	}
 }
+
 t_stack_list	*take_min_cost_node(t_stack_list *stack)
 {
 	if (!stack)
@@ -40,6 +50,7 @@ t_stack_list	*take_min_cost_node(t_stack_list *stack)
 	}
 	return (NULL);
 }
+
 void	setup_for_push(t_stack_list **stack, t_stack_list *first_node,
 		char name_of_stack)
 {
@@ -82,7 +93,7 @@ void	init_stack(t_stack_list **a, char **av, bool is_split)
 				free_split(av);
 			free_err(a);
 		}
-		add_node(a, n);
+		add_node(a, (int)n);
 		i++;
 	}
 	if (is_split)

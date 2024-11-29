@@ -6,7 +6,7 @@
 /*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:35:06 by mmilicev          #+#    #+#             */
-/*   Updated: 2024/11/25 20:20:02 by mmilicev         ###   ########.fr       */
+/*   Updated: 2024/11/29 22:37:48 by mmilicev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,5 @@ void					finalize_stack_sort(t_stack_list **stack);
 void					init_stack_b(t_stack_list *a, t_stack_list *b);
 void					sort_stacks(t_stack_list **a, t_stack_list **b);
 int						stack_len(t_stack_list *stack);
+
 #endif

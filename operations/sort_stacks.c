@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_stacks.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 19:06:12 by mmilicev          #+#    #+#             */
+/*   Updated: 2024/11/29 22:25:09 by mmilicev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
+
 static void	rotate_together(t_stack_list **a, t_stack_list **b,
 		t_stack_list *min_cost_node)
 {
@@ -7,6 +20,7 @@ static void	rotate_together(t_stack_list **a, t_stack_list **b,
 	update_index(*a);
 	update_index(*b);
 }
+
 static void	rev_rotate_together(t_stack_list **a, t_stack_list **b,
 		t_stack_list *min_cost_node)
 {
@@ -41,24 +55,17 @@ static void	shift_b_to_a(t_stack_list **a, t_stack_list **b)
 
 void	sort_stacks(t_stack_list **a, t_stack_list **b)
 {
-	int a_len;
+	int	a_len;
 
 	a_len = stack_len(*a);
-	if(a_len > 3 && !is_sorted(*a))
-	{
+	if (a_len-- > 3 && !is_sorted(*a))
 		pb(a, b, false);
-		a_len--;
-	}
-	if(a_len > 3 && !is_sorted(*a))
-	{
+	if (a_len-- > 3 && !is_sorted(*a))
 		pb(a, b, false);
-		a_len--;
-	}
-	while (a_len > 3 && !is_sorted(*a))
+	while (a_len-- > 3 && !is_sorted(*a))
 	{
 		init_stack_a(*a, *b);
 		shift_a_to_b(a, b);
-		a_len--;
 	}
 	sort_3(a);
 	while (*b)

@@ -6,7 +6,7 @@
 /*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 22:07:58 by mmilicev          #+#    #+#             */
-/*   Updated: 2024/11/25 20:19:57 by mmilicev         ###   ########.fr       */
+/*   Updated: 2024/11/29 22:38:12 by mmilicev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,35 @@ void	free_split(char **split)
 	}
 	free(split);
 }
-void	sort(t_stack_list *a, t_stack_list *b)
+
+int	stack_len(t_stack_list *stack)
 {
-	if (!is_sorted(a))
+	int	len;
+
+	len = 0;
+	if (!stack)
+		return (0);
+	while (stack)
 	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-		else if (stack_len(a) == 3)
-			sort_3(&a);
+		len++;
+		stack = stack->next;
+	}
+	return (len);
+}
+
+void	sort(t_stack_list **a, t_stack_list **b)
+{
+	if (!is_sorted(*a))
+	{
+		if (stack_len(*a) == 2)
+			sa(a, false);
+		else if (stack_len(*a) == 3)
+			sort_3(a);
 		else
-			sort_stacks(&a, &b);
+			sort_stacks(a, b);
 	}
 }
+
 int	main(int ac, char **av)
 {
 	t_stack_list	*a;
@@ -58,7 +75,7 @@ int	main(int ac, char **av)
 	else
 		av += 1;
 	init_stack(&a, av, is_split);
-	sort(a, b);
+	sort(&a, &b);
 	free_stack(&a);
 	return (0);
 }

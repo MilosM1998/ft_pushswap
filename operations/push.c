@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 19:21:01 by mmilicev          #+#    #+#             */
+/*   Updated: 2024/11/29 20:31:12 by mmilicev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static void	push(t_stack_list **src, t_stack_list **dest)
@@ -28,11 +40,12 @@ void	pa(t_stack_list **b, t_stack_list **a, bool printed)
 {
 	push(b, a);
 	if (!printed)
-		ft_printf("pa\n");
+		ft_putendl_fd("pa", 1);
 }
+
 void	pb(t_stack_list **a, t_stack_list **b, bool printed)
 {
 	push(a, b);
 	if (!printed)
-		ft_printf("pb\n");
+		ft_putendl_fd("pb", 1);
 }

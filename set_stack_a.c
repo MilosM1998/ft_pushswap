@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   set_stack_a.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 19:09:41 by mmilicev          #+#    #+#             */
+/*   Updated: 2024/11/28 19:10:16 by mmilicev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
 void	update_index(t_stack_list *stack)
@@ -20,6 +32,7 @@ void	update_index(t_stack_list *stack)
 		++i;
 	}
 }
+
 static void	find_best_targets_a(t_stack_list *a, t_stack_list *b)
 {
 	t_stack_list	*b_node;
@@ -40,12 +53,13 @@ static void	find_best_targets_a(t_stack_list *a, t_stack_list *b)
 			b_node = b_node->next;
 		}
 		if (closest_smaller_value == LONG_MIN)
-			a->target = take_max(a);
+			a->target = take_max(b);
 		else
 			a->target = best_target;
 		a = a->next;
 	}
 }
+
 static void	find_min_cost(t_stack_list *stack)
 {
 	long			min_cost_value;
@@ -64,7 +78,7 @@ static void	find_min_cost(t_stack_list *stack)
 		}
 		stack = stack->next;
 	}
-	if(min_cost_node)
+	if (min_cost_node)
 		min_cost_node->is_min_cost = true;
 }
 
@@ -79,7 +93,7 @@ void	calculate_move_costs_a_b(t_stack_list *a, t_stack_list *b)
 	{
 		a->push_cost = a->curr_pos;
 		if (!a->is_above_med)
-			a->push_cost += a_len - a->curr_pos;
+			a->push_cost = a_len - a->curr_pos;
 		if (a->target->is_above_med)
 			a->push_cost += a->target->curr_pos;
 		else
@@ -87,6 +101,7 @@ void	calculate_move_costs_a_b(t_stack_list *a, t_stack_list *b)
 		a = a->next;
 	}
 }
+
 void	init_stack_a(t_stack_list *a, t_stack_list *b)
 {
 	update_index(a);

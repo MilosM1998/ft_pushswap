@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors_handling.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 19:08:14 by mmilicev          #+#    #+#             */
+/*   Updated: 2024/11/29 22:37:18 by mmilicev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
 
 int	check_syntax_error(char *input)
@@ -5,7 +17,8 @@ int	check_syntax_error(char *input)
 	int	i;
 
 	i = 0;
-	if (!(input[i] == '-' || input[i] == '+' || (input[i] >= '0' && input[i] <= '9')))
+	if (!(input[i] == '-' || input[i] == '+' || (input[i] >= '0'
+				&& input[i] <= '9')))
 		return (1);
 	if ((input[i] == '-' || input[i] == '+') && !(input[1] >= '0'
 			&& input[1] <= '9'))
@@ -17,6 +30,7 @@ int	check_syntax_error(char *input)
 	}
 	return (0);
 }
+
 void	free_stack(t_stack_list **stack)
 {
 	t_stack_list	*tmp;
@@ -37,9 +51,10 @@ void	free_stack(t_stack_list **stack)
 void	free_err(t_stack_list **stack)
 {
 	free_stack(stack);
-	ft_printf("Error\n");
+	ft_putendl_fd("Error", 2);
 	exit(1);
 }
+
 int	check_dup(t_stack_list *stack, long n)
 {
 	if (!stack)

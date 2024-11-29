@@ -1,19 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_stack.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 19:14:21 by mmilicev          #+#    #+#             */
+/*   Updated: 2024/11/28 19:20:23 by mmilicev         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./push_swap.h"
-
-int	stack_len(t_stack_list *stack)
-{
-	int	len;
-
-	len = 0;
-	if (!stack)
-		return (0);
-	while (stack)
-	{
-		len++;
-		stack = stack->next;
-	}
-	return (len);
-}
 
 long	ft_atol(char *str)
 {
@@ -51,6 +48,7 @@ void	*last_node(t_stack_list *stack)
 		temp = temp->next;
 	return (temp);
 }
+
 bool	is_sorted(t_stack_list *stack)
 {
 	if (!stack)
@@ -63,6 +61,7 @@ bool	is_sorted(t_stack_list *stack)
 	}
 	return (true);
 }
+
 t_stack_list	*take_max(t_stack_list *stack)
 {
 	t_stack_list	*max_node;
@@ -82,12 +81,13 @@ t_stack_list	*take_max(t_stack_list *stack)
 	}
 	return (max_node);
 }
+
 t_stack_list	*take_min(t_stack_list *stack)
 {
-	t_stack_list *min_node;
-	long min_n;
+	t_stack_list	*min_node;
+	long			min_n;
 
-	min_n = LONG_MIN;
+	min_n = LONG_MAX;
 	min_node = NULL;
 	if (!stack)
 		return (NULL);
