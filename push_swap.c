@@ -6,7 +6,7 @@
 /*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 22:07:58 by mmilicev          #+#    #+#             */
-/*   Updated: 2024/11/29 22:38:12 by mmilicev         ###   ########.fr       */
+/*   Updated: 2024/12/02 19:46:35 by mmilicev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,15 @@ void	sort(t_stack_list **a, t_stack_list **b)
 	}
 }
 
+static int	is_valid(char c)
+{
+	if (c == '-' || c == '+')
+		return (1);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
+}
+
 int	main(int ac, char **av)
 {
 	t_stack_list	*a;
@@ -65,10 +74,15 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	is_split = false;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
+	if (ac == 1)
 		return (1);
-	if (ac == 2)
+	if (ac == 2 && is_valid(av[1][0]))
 	{
+		if (av[1][0] == '\0')
+		{
+			ft_putendl_fd("Error", 2);
+			exit(1);
+		}
 		av = ft_split(av[1], ' ');
 		is_split = true;
 	}

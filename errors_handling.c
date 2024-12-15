@@ -6,7 +6,7 @@
 /*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:08:14 by mmilicev          #+#    #+#             */
-/*   Updated: 2024/11/29 22:37:18 by mmilicev         ###   ########.fr       */
+/*   Updated: 2024/12/01 21:59:13 by mmilicev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,16 @@ void	free_stack(t_stack_list **stack)
 	*stack = NULL;
 }
 
-void	free_err(t_stack_list **stack)
+void	free_err(t_stack_list **stack, bool is_split, char **av)
 {
 	free_stack(stack);
+	if (is_split)
+		free_split(av);
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }
 
-int	check_dup(t_stack_list *stack, long n)
+int	check_dup(t_stack_list *stack, int n)
 {
 	if (!stack)
 		return (0);

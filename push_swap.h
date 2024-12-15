@@ -6,7 +6,7 @@
 /*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:35:06 by mmilicev          #+#    #+#             */
-/*   Updated: 2024/11/29 22:37:48 by mmilicev         ###   ########.fr       */
+/*   Updated: 2024/12/01 21:39:07 by mmilicev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ void					rrb(t_stack_list **b, bool printed);
 void					rrr(t_stack_list **a, t_stack_list **b, bool printed);
 
 // err
-void					free_err(t_stack_list **stack);
+void					free_err(t_stack_list **stack, bool is_split,
+							char **av);
 void					free_stack(t_stack_list **stack);
 int						check_syntax_error(char *input);
-int						check_dup(t_stack_list *stack, long n);
+int						check_dup(t_stack_list *stack, int n);
 void					free_split(char **split);
 
 // utils

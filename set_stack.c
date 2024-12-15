@@ -6,7 +6,7 @@
 /*   By: mmilicev <mmilicev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:11:02 by mmilicev          #+#    #+#             */
-/*   Updated: 2024/11/29 22:25:26 by mmilicev         ###   ########.fr       */
+/*   Updated: 2024/12/01 21:39:56 by mmilicev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,12 @@ void	init_stack(t_stack_list **a, char **av, bool is_split)
 	while (av[i])
 	{
 		if (check_syntax_error(av[i]))
-			free_err(a);
+			free_err(a, is_split, av);
 		n = ft_atol(av[i]);
 		if (n < INT_MIN || n > INT_MAX)
-			free_err(a);
+			free_err(a, is_split, av);
 		if (check_dup(*a, n))
-		{
-			if (is_split)
-				free_split(av);
-			free_err(a);
-		}
+			free_err(a, is_split, av);
 		add_node(a, (int)n);
 		i++;
 	}
